@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Media Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+        input[type="text"], input[type="submit"], select {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .media-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .media-preview img {
+            max-width: 200px;
+            height: auto;
+            border: 2px solid #f4f4f4;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Media Downloader</h1>
+        <form action="/" method="post">
+            <input type="text" name="url" placeholder="Enter website URL" required>
+            <select name="media_type">
+                <option value="all">All Media</option>
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="mp3">MP3</option>
+            </select>
+            <input type="submit" value="Scan and Download">
+        </form>
+        <p>{{ message }}</p>
+        <div class="media-preview">
+            {% for filename in media_files %}
+                <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="{{ filename }}">
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
