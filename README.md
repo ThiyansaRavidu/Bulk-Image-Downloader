@@ -14,8 +14,8 @@ A web-based application built with Flask that allows users to download media fil
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/yourusername/yourrepository.git
-    cd yourrepository
+    git clone https://github.com/ThiyansaRavidu/Bulk-Image-Downloader.git
+    cd Bulk Image Downloader
     ```
 
 2. **Install the Required Libraries:**
